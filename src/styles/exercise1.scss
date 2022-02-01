@@ -1,0 +1,118 @@
+/* Exercise 1 */
+@use "sass:color";
+@import "variables";
+
+.exercise-header:first-of-type + div {
+    color: var(--color-gray-mid);
+
+    /* Light gray background appears only in exercise 1 image */
+    &:nth-of-type(2) {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-gray-light);
+        padding: var(--spacing-default);
+        font-size: var(--font-size-default);
+
+        p {
+            margin: 1.75rem 0;
+            font-family: var(--font-serif);
+            font-weight: var(--font-light);
+        }
+
+        // Button
+        a {
+            margin: var(--spacing-default) var(--spacing-default) 0;
+            padding: 1.5rem var(--spacing-default);
+            background-color: var(--color-blue);
+            color: var(--color-white);
+            border-radius: 0.25rem;
+            font-family: var(--font-sans-serif);
+            font-size: var(--font-size-small);
+            font-weight: var(--font-bold);
+            text-align: center;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: background-color 0.25s;
+
+            &:hover {
+                cursor: pointer;
+                background: var(--color-blue-darker);
+            }
+        }
+
+        span {
+            font-family: var(--font-sans-serif);
+            font-size: var(--font-size-small);
+            font-weight: var(--font-bold);
+        }
+
+        & > div {
+            display: flex;
+            flex-direction: column;
+            border-top: var(--border-white);
+            border-left: var(--border-orange);
+            margin-top: 0.25rem;
+
+            & > div {
+                padding: 0 var(--spacing-default);
+            }
+
+            // Quotes icon - alternatively would prefer to use SVG.
+            &::before {
+                // Signal to screen readers to ignore this element; https://caniuse.com/?search=speak
+                speak: none;
+                content: "“";
+                display: inline-flex;
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                align-self: flex-start;
+                justify-content: space-between;
+                height: var(--spacing-quotes-default);
+                width: var(--quotes-sizing);
+                min-width: var(--spacing-quotes-default);
+                margin-left: var(--quotes-left);
+                padding: 0.5rem 0.25rem 0;
+                transform: translateY(75%);
+                border: var(--border-white);
+                border-radius: var(--border-circle-radius);
+                background-color: var(--color-orange);
+                font-family: var(--font-quotes);
+                color: var(--color-white);
+                font-size: var(--font-size-quotes);
+                text-align: center;
+                line-height: 1;
+            }
+
+            // Small circle.
+            &::after {
+                content: "";
+                position: absolute;
+                width: var(--circle-small-size);
+                height: var(--circle-small-size);
+                bottom: 1.5em;
+                margin-left: -0.35rem;
+                background-color: var(--color-orange);
+                border-radius: var(--border-circle-radius);
+            }
+        }
+
+        @media screen and (min-width: 640px) {
+            a {
+                margin: 0 auto;
+            }
+
+            & > div {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            & > div {
+                max-width: 768px;
+            }
+        }
+    }
+}

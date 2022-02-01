@@ -1,0 +1,30 @@
+{
+  "name": "hubspot-code-exercise",
+  "version": "1.1.0",
+  "description": "HubSpot Code Exercise",
+  "scripts": {
+    "start": "parcel serve src/views/index.html --open",
+    "build": "parcel build src/views/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style-lint": "npx stylelint \"**/*.scss\""
+  },
+  "author": "HubSpot Applicant",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "parcel": "2.2.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@parcel/transformer-sass": "^2.2.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "sass": "^1.49.4",
+    "stylelint": "^14.3.0",
+    "stylelint-config-standard-scss": "^3.0.0"
+  }
+}
